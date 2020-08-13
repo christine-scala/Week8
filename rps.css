@@ -13,10 +13,10 @@ body {
     cursor: pointer;
 }
 #paper {
-
+    cursor: pointer;
 }
 #scissors {
-
+    cursor: pointer;
 }
 
 .buttons{

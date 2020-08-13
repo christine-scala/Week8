@@ -1,10 +1,11 @@
 const computer=Math.floor(Math.random()*3);
 
 /*
+document.getElementById("rock").addEventListener("click", userChoice);
+document.getElementById("paper").addEventListener("click", userChoice);
+document.getElementById("scissors').addEventListener("click", userChoice);
+
 function userChoice (){
-    var rock=document.getElementById("rock").addEventListener("click", ());
-    var paper=document.getElementById("paper").addEventListener("click", ());
-    var scissors=document.getElementById("scissors').addEventListener("click", ());
     if (==rock){
     document.getElementById("choice").innerHTML = rock;
     }

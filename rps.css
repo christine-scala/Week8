@@ -1,0 +1,26 @@
+* {
+    margin: none;
+    padding: none;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: antiquewhite;
+}
+
+#rock {
+    background-color: linear-gradient(rgb(46, 42, 42), rgb(46, 43, 43));
+    cursor: pointer;
+}
+#paper {
+
+}
+#scissors {
+
+}
+
+.buttons{
+    background-color: blue;
+    border-radius: 5px;
+    color: brown;
+}

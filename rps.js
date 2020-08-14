@@ -1,67 +1,71 @@
-const computer=Math.floor(Math.random()*4)+1;
-// this will only generate 1,2,3  
+const buttons = document.querySelectorAll('.buttons');
 
-document.getElementById("rock").onclick = userChoice;
-document.getElementById("paper").onclick = userChoice;
-document.getElementById("scissors").onclick = userChoice;
+buttons.forEach((button) => {
+  button.addEventListener('click', playerChoice);
+})
 
-function userChoice (){
-    var final = this.id;
-    document.getElementById("choice").innerHTML = (final)
-    }
-   /* 
-var rock="rock"
-var paper="paper"
-var scissors="scissors"
+function playerChoice(e) {
+  const playerChoice = e.target.value;
+  const robotChoice = computerChoice();
+  document.querySelector('#choice').innerHTML = playerChoice;
+  determineWinner(playerChoice, robotChoice);
+}
 
-*/
-// you are assigning variables here, not string values, what i would do is make some vars like this:
-// var rock="rock";  and i think this would help with your next function
 function computerChoice (){
+    const computer = Math.floor(Math.random()*3)+1;
     if (computer == 1) {
-        document.getElementById("random").innerHTML = rock;
+        document.getElementById("random").innerHTML = 'rock';
+        return 'rock';
     } else if (computer == 2) {
-        document.getElementById("random").innerHTML = paper;
+        document.getElementById("random").innerHTML = 'paper';
+        return 'paper';
     } else if (computer == 3) {
-        document.getElementById("random").innerHTML = scissors;
-    }
-    
-}
-computerChoice ();
-
-var response = computerChoice();
-// you define this function with parameters, but don't call it with those parameters. 
-//i would return/assign the return for the computerChoice function to a variable then hand that in, 
-//then hand in the user choice as a var too. then i think it will work :)
-function game (user, computer){
-    
-    if (rock,scissors) {
-        document.getElementById("result").innerHTML ("You won!");
-    }
-    else if (paper,scissors) {
-        document.getElementById("result").innerHTML ("You Lost &#xe058;");
-    }
-    else if (scissors, scissors) {
-        document.getElementById("result").innerHTML ("Draw");
-    }
-    else if (paper,rock) {
-        document.getElementById("result").innerHTML ("You won!");
-    }
-    else if (scissors,rock) {
-        document.getElementById("result").innerHTML ("You Lost &#xe058;");
-    }
-    else if (rock,rock) {
-        document.getElementById("result").innerHTML ("Draw");
-    }
-    else if (paper,paper) {
-        document.getElementById("result").innerHTML ("Draw");
-    }
-    else if (rock,paper) {
-        document.getElementById("result").innerHTML ("You Lost &#xe058;");
-    }
-    else if (scissors, paper) {
-        document.getElementById("result").innerHTML ("You won!");
+        document.getElementById("random").innerHTML = 'scissors';
+        return 'scissors';
     }
 }
 
-game();
+function determineWinner(playerChoice, computerChoice){ 
+// switch stmts used instead of if statements
+switch(playerChoice) {
+    case 'rock':
+      switch(computerChoice) {
+        case 'rock':
+          return null;
+          break;
+        case 'scissors':
+          return true;
+          break;
+        default:
+          return false;
+          break;
+      }
+      break;
+    case 'paper':
+      switch(computerChoice) {
+        case 'paper':
+          return null;
+          break;
+        case 'rock':
+          return true;
+          break;
+        default:
+          return false;
+          break;
+      }
+    break;
+    case 'scissors':
+      switch(computerChoice) {
+        case 'scissors':
+          return null;
+          break;
+        case 'paper':
+          return true;
+          break;
+        default:
+          return false;
+          break;
+      }
+    break;
+  }document.querySelector('#result').innerHTML = determineWinner;
+}

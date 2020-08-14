@@ -1,4 +1,6 @@
 const computer=Math.floor(Math.random()*3);
+// this will only generate 0,1,2 so will never pick 3. 
+
 
 /*
 document.getElementById("rock").addEventListener("click", userChoice);
@@ -17,6 +19,9 @@ function userChoice (){
     }
 }*/
 
+
+// you are assigning variables here, not string values, what i would do is make some vars like this:
+// var rock="rock";  and i think this would help with your next function
 function computerChoice (){
     if (computer == 1) {
         document.getElementById("random").innerHTML = rock;
@@ -29,6 +34,8 @@ function computerChoice (){
 
 computerChoice ();
 
+
+// you define this function with parameters, but don't call it with those parameters. i would return/assign the return for the computerChoice function to a variable then hand that in, then hand in teh user choice as a var too. then i think it will work :)
 function game (user, computer){
     if (rock,scissors) {
         document.getElementById("result").innerHTML ("You won!");

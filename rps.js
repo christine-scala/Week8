@@ -8,8 +8,9 @@ function playerChoice(e) {
   const playerChoice = e.target.value;
   const robotChoice = computerChoice();
   document.querySelector('#choice').innerHTML = playerChoice;
-  determineWinner(playerChoice, robotChoice);
+  var showMe = determineWinner(playerChoice, robotChoice); showWinner(showMe);
 }
+
 
 function computerChoice (){
     const computer = Math.floor(Math.random()*3)+1;
@@ -67,5 +68,20 @@ switch(playerChoice) {
           break;
       }
     break;
-  }document.querySelector('#result').innerHTML = determineWinner;
+  }
+}
+
+function showWinner(showMe){ 
+  console.log(showMe);
+switch(showMe) {
+    case null:
+          document.querySelector('#result').innerHTML = "It's a draw.";
+          break;
+    case true:
+          document.querySelector('#result').innerHTML = "You've won!";
+          break;
+    case false:
+          document.querySelector('#result').innerHTML = "You lost.";
+    break;
+    }
 }
